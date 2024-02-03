@@ -24,8 +24,12 @@ const initialStateObject = {
 const Context = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialStateObject);
 
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
+
   return (
-    <GlobalContext.Provider value={{ ...state }}>
+    <GlobalContext.Provider value={{ ...state, clearCart }}>
       {children}
     </GlobalContext.Provider>
   );
