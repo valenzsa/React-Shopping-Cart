@@ -10,17 +10,7 @@ import {
   DISPLAY_ITEMS,
 } from "./actions";
 
-type IShoppingCart = {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  quantity: number;
-};
-
-type IShoppingCartContext = [IShoppingCart[], React.Dispatch<IShoppingCart[]>];
-
-const GlobalContext = createContext<IShoppingCartContext>([[], () => []]);
+const GlobalContext = createContext();
 
 export const useGlobalContext = () => {
   return useContext(GlobalContext);
@@ -28,7 +18,7 @@ export const useGlobalContext = () => {
 
 const initialStateObject = {
   isLoading: false,
-  cart: new Map(),
+  cart: new Map(cartItems.map((item) => [item.id, item])),
 };
 
 const Context = ({ children }) => {
