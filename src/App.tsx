@@ -1,5 +1,13 @@
+import CartContainer from "./components/CartContainer";
+import Header from "./components/Header";
+
 function App() {
-  return <h2>App</h2>;
+  return (
+    <>
+      <Header />
+      <CartContainer />
+    </>
+  );
 }
 
 export default App;
