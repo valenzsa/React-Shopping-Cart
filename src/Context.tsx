@@ -9,7 +9,7 @@ import {
   LOADING,
   DISPLAY_ITEMS,
 } from "./actions";
-
+import GetTotals from "./utils/GetTotals";
 const GlobalContext = createContext();
 
 export const useGlobalContext = () => {
@@ -23,6 +23,8 @@ const initialStateObject = {
 
 const Context = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialStateObject);
+
+  const { totalAmount, totalCost } = GetTotals({ cart: state.cart });
 
   const clearCart = () => {
     dispatch({ type: CLEAR_CART });
@@ -48,6 +50,8 @@ const Context = ({ children }) => {
         removeItem,
         increaseQuantity,
         decreaseQuantity,
+        totalAmount,
+        totalCost,
       }}
     >
       {children}
