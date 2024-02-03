@@ -28,8 +28,28 @@ const Context = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
+  const removeItem = (id) => {
+    dispatch({ type: REMOVE_ITEM, payload: { id } });
+  };
+
+  const increaseQuantity = (id) => {
+    dispatch({ type: INCREASE_QUANTITY, payload: { id } });
+  };
+
+  const decreaseQuantity = (id) => {
+    dispatch({ type: DECREASE_QUANTITY, payload: { id } });
+  };
+
   return (
-    <GlobalContext.Provider value={{ ...state, clearCart }}>
+    <GlobalContext.Provider
+      value={{
+        ...state,
+        clearCart,
+        removeItem,
+        increaseQuantity,
+        decreaseQuantity,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );
