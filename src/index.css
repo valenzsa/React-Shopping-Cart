@@ -114,6 +114,7 @@ table tbody tr td img {
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .cart-footer .total-cost {
 }
@@ -137,6 +138,7 @@ table tbody tr td img {
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .cart-container h2 {
